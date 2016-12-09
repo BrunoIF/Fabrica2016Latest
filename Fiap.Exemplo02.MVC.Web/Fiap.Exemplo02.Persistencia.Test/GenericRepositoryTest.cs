@@ -38,8 +38,9 @@ namespace Fiap.Exemplo02.Persistencia.Test
             };
             // Cadastro o aluno
             _repository.Cadastrar(aluno);
-            _context.SaveChanges();
-            // 
+            int r = _context.SaveChanges();
+            Assert.AreEqual(1, r); // valida a quantidade de registros afedatos no commit
+            Assert.AreNotEqual(aluno.Id, 0); // valida se gerado uma chave no banco de dados
         }
     }
 }

@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Cadastrar";
 }
-<<<<<<< HEAD
 
 <h2>Cadastro de Aluno</h2>
 
@@ -10,20 +9,12 @@
 
 @Html.ValidationSummary() <!--Todas as mensagens -->
 
-=======
-<h2>Cadastro de Aluno</h2>
-@Helper.Message(Model.Mensagem, "alert alert-success")
-@Html.ValidationSummary() <!--Todas as mensagens -->
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
 @using (Html.BeginForm())
 {
     <div class="form-group">
         @Html.LabelFor(a => a.Nome)
-<<<<<<< HEAD
         @Html.TextBoxFor(a => a.Nome, new { @class = "form-control"})
-=======
-        @Html.TextBoxFor(a => a.Nome, new { @class = "form-control" })
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+
         @Html.ValidationMessageFor(a => a.Nome)
     </div>
     <div class="form-group">
@@ -33,15 +24,10 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(a => a.GrupoId)
-<<<<<<< HEAD
+
         @Html.DropDownListFor(a => a.GrupoId , 
                 Model.ListaGrupo, "Selecione" , 
                 new { @class = "form-control" } )
-=======
-        @Html.DropDownListFor(a => a.GrupoId,
-                Model.ListaGrupo, "Selecione",
-                new { @class = "form-control" })
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
         @Html.ValidationMessageFor(a => a.GrupoId)
     </div>
     <div class="form-group">
@@ -74,22 +60,15 @@
         @Html.ValidationMessageFor(a => a.Numero)
     </div>
     <div class="form-group">
-<<<<<<< HEAD
+
         @Helper.Submit("Salvar","btn btn-primary")
     </div>
 }
 
-@section scripts{
-    <script>
-        $().ready(function () {
-=======
-        @Helper.Submit("Salvar", "btn btn-primary")
-    </div>
 }
 @section scripts{
     <script>
         $().ready(function () {            
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
             $("#DataNascimento").datepicker();
 
             $("#Cep").blur(function () {
@@ -104,28 +83,14 @@
             });
 
             $("#Nome").blur(function () {
-<<<<<<< HEAD
-                //Validação com Ajax
-=======
+
                 // Validação com Ajax
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
                 $.ajax({
                     url: "http://localhost:58692/Aluno/ValidarNome",
                     method: "GET",
                     data: { nome: $("#Nome").val() },
                     success: function (data) {
                         if (data.existe) {
-<<<<<<< HEAD
-                            //alert("Nome ja existe amiguinho");
-                            var erro = $("span[data-valmsg-for=Nome]");
-                            erro.addClass("field-validation-error").removeClass("field-validation-valid");
-                            erro.html("<span>Nome já cadastrado</span>");
-                        }
-                    }
-                });
-            });
-
-=======
                             var error = $("span[data-valmsg-for=Nome]");
                             error.addClass("field-validation-error").removeClass("field-validation-valid");
                             error.html("<span>Nome já cadastrado.</span>");
@@ -141,7 +106,7 @@
             });
 
 
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+
             //Valida se o checkbox está marcado, se estiver exibe o desconto, caso contrário esconde
             if ($("#Bolsa").attr("checked") == "checked") {
                 $("#Desconto").parent().css("display", "block");
@@ -157,7 +122,3 @@
         });
     </script>
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0

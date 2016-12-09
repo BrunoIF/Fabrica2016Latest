@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo02.Service", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo02.Persistencia.Test", "Fiap.Exemplo02.Persistencia.Test\Fiap.Exemplo02.Persistencia.Test.csproj", "{D0CDE456-7BF5-462D-927F-70B89FE1AD65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Exemplo02.Web.Test", "Fiap.Exemplo02.Web.Test\Fiap.Exemplo02.Web.Test.csproj", "{5A0B0465-B082-4BE8-B10F-93B81C82AEC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{D0CDE456-7BF5-462D-927F-70B89FE1AD65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0CDE456-7BF5-462D-927F-70B89FE1AD65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0CDE456-7BF5-462D-927F-70B89FE1AD65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0B0465-B082-4BE8-B10F-93B81C82AEC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0B0465-B082-4BE8-B10F-93B81C82AEC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0B0465-B082-4BE8-B10F-93B81C82AEC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0B0465-B082-4BE8-B10F-93B81C82AEC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
