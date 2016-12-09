@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Lista dos melhores alunos</h2>
+
+<div class="form-group">
+    <input type="text" id="nome" placeholder="Nome" class="form-control" />
+</div>
+
+<div class="form-group">
+    <input type="text" id="desconto" placeholder="Desconto" class="form-control" />
+</div>
+
+<div class="form-group">
+    <input type="text" id="dataNascimento" placeholder="Data de Nascimento" class="form-control" />
+</div>
+
+<div class="form-group">
+    <input type="checkbox" id="bolsa" /> Bolsa
+</div>
+
+<input type="submit" value="Salvar" class="btn btn-success" id="Cadastrar"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Bolsa</th>
+            <th>Desconto</th>
+            <th>Data Nascimento</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts {
+    <script>
+        $(document).ready(function listar() {
+            $.ajax({
+                url: "http://localhost:58692/api/aluno/",
+                method: "GET",
+                success: function (data) {
+                    $.each(data, function (index, item) {
+                        //Criar uma nova linha
+                        var linha = $("<tr>");
+                        linha.append($("<td>").text(item.Nome));
+                        linha.append($("<td>").text(item.Bolsa));
+                        linha.append($("<td>").text(item.Desconto));
+                        linha.append($("<td>").text(item.DataNascimento));
+
+                        $("tbody").append(linha);
+                    })
+                }
+            })
+        })
+
+        if ('#bolsa'.checked == true) {
+            var bolsa = true;
+        } else {
+            var bolsa = false;
+        }
+
+
+        $("#Cadastrar").click(function Cadastrar() {
+            $.ajax({
+                url: "http://localhost:58692/api/aluno/",
+                method: "POST",                
+                data: {
+                    Nome: $("#nome").val(),
+                    DataNascimento: $("#dataNascimento").val(),
+                    Bolsa: bolsa,
+                    Desconto: $("#desconto").val()
+
+                },
+                success: function (data) {
+                    listar();
+                },
+                error: function (data) {
+                    alert("Erro!");
+                }
+
+            })
+        })
+    </script>
+}

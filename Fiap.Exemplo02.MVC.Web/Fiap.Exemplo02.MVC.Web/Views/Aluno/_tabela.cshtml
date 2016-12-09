@@ -1,0 +1,30 @@
+﻿@model List<Fiap.Exemplo02.Dominio.Models.Aluno>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Nome</td>
+<<<<<<< HEAD
+        <td>@item.DataNascimento</td>
+=======
+        <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+        <td>@(item.Bolsa ? "Sim" : "Não")</td>
+        <td>@item.Desconto</td>
+        <td>@item.Grupo.Nome</td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn btn-primary" })
+            <button onclick="alunoId.value = @item.Id" type="button" class="btn btn-danger " data-toggle="modal" data-target="#myModal">
+<<<<<<< HEAD
+                Excluir
+=======
+                <i class="glyphicon glyphicon-trash"></i>
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+            </button>
+        </td>
+    </tr>
+}
+
+@if (Request.IsAjaxRequest())
+{
+    <script>someBotao();</script>
+}

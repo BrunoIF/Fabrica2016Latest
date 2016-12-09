@@ -1,0 +1,163 @@
+﻿@model Fiap.Exemplo02.MVC.Web.ViewModels.AlunoViewModel
+@{
+    ViewBag.Title = "Cadastrar";
+}
+<<<<<<< HEAD
+
+<h2>Cadastro de Aluno</h2>
+
+@Helper.Message(Model.Mensagem, "alert alert-success")
+
+@Html.ValidationSummary() <!--Todas as mensagens -->
+
+=======
+<h2>Cadastro de Aluno</h2>
+@Helper.Message(Model.Mensagem, "alert alert-success")
+@Html.ValidationSummary() <!--Todas as mensagens -->
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(a => a.Nome)
+<<<<<<< HEAD
+        @Html.TextBoxFor(a => a.Nome, new { @class = "form-control"})
+=======
+        @Html.TextBoxFor(a => a.Nome, new { @class = "form-control" })
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+        @Html.ValidationMessageFor(a => a.Nome)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.DataNascimento)
+        @Html.TextBoxFor(a => a.DataNascimento, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.DataNascimento)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.GrupoId)
+<<<<<<< HEAD
+        @Html.DropDownListFor(a => a.GrupoId , 
+                Model.ListaGrupo, "Selecione" , 
+                new { @class = "form-control" } )
+=======
+        @Html.DropDownListFor(a => a.GrupoId,
+                Model.ListaGrupo, "Selecione",
+                new { @class = "form-control" })
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+        @Html.ValidationMessageFor(a => a.GrupoId)
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(a => a.Bolsa)
+        @Html.LabelFor(a => a.Bolsa)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Desconto)
+        @Html.TextBoxFor(a => a.Desconto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Desconto)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Cep)
+        @Html.TextBoxFor(a => a.Cep, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Cep)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Logradouro)
+        @Html.TextBoxFor(a => a.Logradouro, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(a => a.Logradouro)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Cidade)
+        @Html.TextBoxFor(a => a.Cidade, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(a => a.Cidade)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Numero)
+        @Html.TextBoxFor(a => a.Numero, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Numero)
+    </div>
+    <div class="form-group">
+<<<<<<< HEAD
+        @Helper.Submit("Salvar","btn btn-primary")
+    </div>
+}
+
+@section scripts{
+    <script>
+        $().ready(function () {
+=======
+        @Helper.Submit("Salvar", "btn btn-primary")
+    </div>
+}
+@section scripts{
+    <script>
+        $().ready(function () {            
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+            $("#DataNascimento").datepicker();
+
+            $("#Cep").blur(function () {
+                $.ajax({
+                    url: "http://api.postmon.com.br/v1/cep/" + $("#Cep").val(),
+                    method: "GET",
+                    success: function (data) {
+                        $("#Logradouro").val(data.logradouro);
+                        $("#Cidade").val(data.cidade);
+                    }
+                });
+            });
+
+            $("#Nome").blur(function () {
+<<<<<<< HEAD
+                //Validação com Ajax
+=======
+                // Validação com Ajax
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+                $.ajax({
+                    url: "http://localhost:58692/Aluno/ValidarNome",
+                    method: "GET",
+                    data: { nome: $("#Nome").val() },
+                    success: function (data) {
+                        if (data.existe) {
+<<<<<<< HEAD
+                            //alert("Nome ja existe amiguinho");
+                            var erro = $("span[data-valmsg-for=Nome]");
+                            erro.addClass("field-validation-error").removeClass("field-validation-valid");
+                            erro.html("<span>Nome já cadastrado</span>");
+                        }
+                    }
+                });
+            });
+
+=======
+                            var error = $("span[data-valmsg-for=Nome]");
+                            error.addClass("field-validation-error").removeClass("field-validation-valid");
+                            error.html("<span>Nome já cadastrado.</span>");
+                            $("input[type=submit]").addClass("disabled");
+                        } else {
+                            var sucesso = $("span[data-valmsg-for=Nome]");
+                            sucesso.addClass("field-validation-valid").removeClass("field-validation-error");
+                            sucesso.html("<span>Nome é válido.</span>");
+                            $("input[type=submit]").removeClass("disabled");
+                        }
+                    }
+                })
+            });
+
+
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0
+            //Valida se o checkbox está marcado, se estiver exibe o desconto, caso contrário esconde
+            if ($("#Bolsa").attr("checked") == "checked") {
+                $("#Desconto").parent().css("display", "block");
+            } else {
+                $("#Desconto").parent().css("display", "none");
+            }
+            //Quando clicar no checkbox Bolsa
+            $("#Bolsa").click(function () {
+                //Esconde ou exibe a div que possui o campo desconto
+                $("#Desconto").parent().slideToggle();
+                $("#Desconto").focus();
+            });
+        });
+    </script>
+}
+<<<<<<< HEAD
+
+=======
+>>>>>>> e315488926bddfb9c7f719ed1a6b60234515e1f0

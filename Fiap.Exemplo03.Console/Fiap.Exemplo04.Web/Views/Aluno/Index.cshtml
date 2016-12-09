@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista dos melhores alunos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Bolsa</th>
+            <th>Desconto</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script>
+    $.ajax({
+        url: "http://localhost:58962/api/cliente/",
+        method: "GET",
+        success: function (data) {
+            $.each(data, function (index, item) {
+                // criar uma nova linha
+                var linha = $("<tr>");
+                linha.append($("<td>").text(item.nome));
+                linha.append($("<td>").text(item.dataNascimento));
+                linha.append($("<td>").text(item.bolsa));
+                linha.append($("<td>").text(item.desconto));
+
+                $('<tbody>').append(linha);
+            });
+        }
+    });
+</script>
